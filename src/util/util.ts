@@ -37,3 +37,18 @@ export async function deleteLocalFiles(files: Array<string>) {
     fs.unlinkSync(file);
   }
 }
+
+// function isValidURL
+//helper function to validate URLs
+//INPUTS
+//  urlToBeValidated: string - a URL string that needs to be validated
+//RETURNS
+//  The test result in a boolean True or False
+export async function isValidURL(urlToBeValidated: string) {
+  
+  //RegExp() constructor creates a Regular Expression using the provided pattern 
+  var urlPattern = new RegExp("(http|ftp|https)://([\\w+?\\.\\w+])+([a-zA-Z0-9\\~\\!\\@\\#\\$\\%\\^\\&\\*\\(\\)_\\-\\=\\+\\\\\\/\\?\\.\\:\\\;\\'\\,]*)?"); // RegEx to match URL pattern 
+  
+  //Use test method to match a URL against the pattern, returns True or False
+  return urlPattern.test(urlToBeValidated);
+}
